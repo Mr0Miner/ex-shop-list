@@ -6,8 +6,8 @@
 }
 
 body {
-    background-color: #f0f0f0; /* Light background for day mode */
-    color: #333; /* Dark text color */
+    background-color: #f0f0f0;
+    color: #333;
     transition: background-color 0.3s, color 0.3s;
 }
 
@@ -17,13 +17,30 @@ body {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    background-color: #fff; /* White background for container */
+    background-color: #fff;
     transition: background-color 0.3s, color 0.3s;
 }
 
 .night {
-    background-color: #1a1a1a; /* Dark background for night mode */
-    color: #f0f0f0; /* Light text color */
+    background-color: #1a1a1a;
+    color: #f0f0f0;
+}
+
+.night .tablink {
+    background-color: #555;
+    color: white;
+}
+
+.night .info-table {
+    background-color: #333;
+    color: #f0f0f0;
+}
+
+.night .search-container select,
+.night .search-container input {
+    background-color: #444;
+    color: #f0f0f0;
+    border: 1px solid #666;
 }
 
 .tab-buttons {
@@ -36,19 +53,19 @@ body {
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
-    background-color: #ddd; /* Light grey for buttons */
+    background-color: #ddd;
     color: #333;
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s;
 }
 
 .tablink:hover {
-    background-color: #bbb; /* Darker grey on hover */
+    background-color: #bbb;
 }
 
 .tablink.active {
-    background-color: #bbb; /* Dark background for active tab */
-    color: white; /* White text for active tab */
+    background-color: #bbb;
+    color: white;
 }
 
 hr {
@@ -75,8 +92,8 @@ input[type="text"] {
 
 select:focus,
 input[type="text"]:focus {
-    border-color: #555; /* Dark border on focus */
-    outline: none; /* Remove default outline */
+    border-color: #555;
+    outline: none;
 }
 
 select {
@@ -92,14 +109,14 @@ select {
     padding: 10px;
     border: none;
     border-radius: 5px;
-    background-color: #28a745; /* Green for file button */
+    background-color: #28a745;
     color: white;
     cursor: pointer;
     transition: background-color 0.3s;
 }
 
 .file-button:hover {
-    background-color: #218838; /* Darker green on hover */
+    background-color: #218838;
 }
 
 table {
@@ -115,25 +132,28 @@ th, td {
 }
 
 th {
-    background-color: #f4f4f4; /* Light background for headers */
+    background-color: #f4f4f4;
 }
 
 tr:nth-child(even) {
-    background-color: #f9f9f9; /* Alternate row color */
+    background-color: #f9f9f9;
 }
 
 .cell-stock {
-    background-color: #d4edda; /* Light green for in-stock */
+    background-color: #d4edda; /* رنگ پس‌زمینه سبز */
+    font-weight: bold; /* پر رنگ کردن متن */
 }
 
 .cell-low-stock {
-    background-color: #fff3cd; /* Light yellow for low stock */
-    color: #856404; /* Dark yellow for text */
+    background-color: #fff3cd; /* رنگ پس‌زمینه زرد */
+    color: #a17900; /* رنگ متن زرد */
+    font-weight: bold; /* پر رنگ کردن متن */
 }
 
 .cell-out-of-stock {
-    background-color: #f8d7da; /* Light red for out of stock */
-    color: #721c24; /* Dark red for text */
+    background-color: #f8d7da; /* رنگ پس‌زمینه قرمز */
+    color: #ff0019; /* رنگ متن قرمز */
+    font-weight: bold; /* پر رنگ کردن متن */
 }
 
 .info-table {
@@ -149,7 +169,7 @@ tr:nth-child(even) {
 }
 
 .info-table td span {
-    font-weight: bold; /* Bold for numbers */
+    font-weight: bold;
 }
 
 .toggle-button {
@@ -170,4 +190,17 @@ tr:nth-child(even) {
 
 .toggle-button:hover {
     transform: scale(0.98);
+}
+
+.night #excel-table {
+    background-color: #333; /* رنگ پس‌زمینه جدول در حالت شب */
+}
+
+.night #excel-table th {
+    background-color: #444; /* رنگ پس‌زمینه سرستون‌ها در حالت شب */
+}
+
+.night #excel-table td {
+    border: 1px solid #555; /* رنگ مرز سلول‌ها در حالت شب */
+    color: black;
 }
