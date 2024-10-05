@@ -1,6 +1,47 @@
 const filePath = document.getElementById('file-path').value;
 
 document.addEventListener('DOMContentLoaded', function () {
+    // تنظیم حالت پیشفرض به روز
+    document.body.classList.add('day'); // اضافه کردن حالت روز
+    document.querySelector('.container').classList.add('day'); // اضافه کردن حالت روز به container
+
+    // اضافه کردن دکمه تغییر حالت
+    const toggleButton = document.createElement('button');
+    toggleButton.className = 'toggle-button'; // اضافه کردن کلاس برای استایل
+    toggleButton.innerHTML = '🌙'; // ایموجی برای حالت شب
+    toggleButton.onclick = function() {
+        if (document.body.classList.contains('day')) {
+            document.body.classList.remove('day');
+            document.body.classList.add('night');
+            document.querySelector('.container').classList.remove('day');
+            document.querySelector('.container').classList.add('night'); // تغییر حالت container به شب
+            
+            // تغییر حالت برای سایر کلاس‌ها
+            document.querySelectorAll('.tablink').forEach(link => {
+                link.classList.remove('day');
+                link.classList.add('night');
+            });
+            // ... سایر کلاس‌ها را به همین صورت تغییر دهید ...
+
+            toggleButton.innerHTML = '🌞'; // تغییر به ایموجی روز
+        } else {
+            document.body.classList.remove('night');
+            document.body.classList.add('day');
+            document.querySelector('.container').classList.remove('night');
+            document.querySelector('.container').classList.add('day'); // تغییر حالت container به روز
+            
+            // تغییر حالت برای سایر کلاس‌ها
+            document.querySelectorAll('.tablink').forEach(link => {
+                link.classList.remove('night');
+                link.classList.add('day');
+            });
+            // ... سایر کلاس‌ها را به همین صورت تغییر دهید ...
+
+            toggleButton.innerHTML = '🌙'; // تغییر به ایموجی شب
+        }
+    };
+    document.querySelector('.container').appendChild(toggleButton); // اضافه کردن دکمه به container
+
     fetch(filePath)
         .then(response => {
             if (!response.ok) {

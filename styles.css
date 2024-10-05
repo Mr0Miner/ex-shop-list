@@ -1,195 +1,171 @@
-body {
-    font-family: 'Vazirmatn', sans-serif;
-    background-color: #1e1e1e;
-    color: #e0e0e0;
+* {
+    box-sizing: border-box;
     margin: 0;
-    padding: 15px;
-    line-height: 1.2;
-    overflow-x: hidden;
+    padding: 0;
+    font-family: 'Vazirmatn', sans-serif;
+}
+
+body {
+    background-color: #f0f0f0; /* Light background for day mode */
+    color: #333; /* Dark text color */
+    transition: background-color 0.3s, color 0.3s;
 }
 
 .container {
-    max-width: 60%;
+    max-width: 1200px;
     margin: 0 auto;
-    text-align: center;
-    background: #282828;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.6);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff; /* White background for container */
+    transition: background-color 0.3s, color 0.3s;
 }
 
-.tabcontent h2 {
-    color: #ffffff;
-    margin-bottom: 15px;
-    font-weight: 600;
-    font-size: 14px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+.night {
+    background-color: #1a1a1a; /* Dark background for night mode */
+    color: #f0f0f0; /* Light text color */
+}
+
+.tab-buttons {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.tablink {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #ddd; /* Light grey for buttons */
+    color: #333;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.tablink:hover {
+    background-color: #bbb; /* Darker grey on hover */
+}
+
+.tablink.active {
+    background-color: #555; /* Dark background for active tab */
+    color: white; /* White text for active tab */
+}
+
+hr {
+    margin: 20px 0;
 }
 
 .search-container {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    gap: 8px;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
+}
+
+select,
+input[type="text"] {
     width: 100%;
-}
-
-input[type="text"],
-select {
-    font-family: "Vazirmatn", sans-serif;
-    font-size: 60%;
-    direction: rtl;
-    padding: 8px;
-    border: 1px solid #555;
-    border-radius: 3.5px;
-    background-color: #333;
-    color: #e0e0e0;
-    transition: border-color 0.3s, box-shadow 0.3s;
-    width: 100%;
-    max-width: 100%;
-}
-
-input[type="text"]:focus,
-select:focus {
-    border-color: #00aaff;
-    box-shadow: 0 0 3.5px rgba(0, 170, 255, 0.5);
-}
-
-input[type="text"]::placeholder {
-    color: #aaa;
-    font-style: italic;
-}
-
-select {
-    width: 10%;
-    min-width: 100px;
-}
-
-table {
-    border-collapse: collapse;
-    margin: 15px 0;
-    width: 100%;
-    table-layout: fixed;
-}
-
-th,
-td {
-    padding: 10px 12px;
-    border: 1px solid #444;
-    text-align: left;
-    font-size: 10px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-th {
-    background-color: #3a3a3a;
-    color: #ffffff;
-    font-weight: 500;
-    text-transform: uppercase;
-}
-
-tr:nth-child(even) {
-    background-color: #2d2d2d;
-}
-
-tr:hover {
-    background-color: #3f3f3f;
-}
-
-.cell-out-of-stock,
-.cell-low-stock,
-.cell-stock {
-    font-weight: bold;
-    text-align: center;
-}
-
-.cell-out-of-stock {
-    color: #ff4d4d;
-}
-
-.cell-low-stock {
-    color: #ffeb3b;
-}
-
-.cell-stock {
-    color: #4caf50;
-}
-
-td {
-    white-space: nowrap;
-    text-align: center;
-}
-
-hr {
-    border: 0;
-    height: 1px;
-    background: #ccc;
-    width: 100%;
-}
-
-.info-table td {
-    font-size: 9px;
-    direction: rtl;
-}
-
-.tab-buttons {
-    display: inline;
-}
-
-.tablink {
-    font-family: 'Vazirmatn', sans-serif;
-    background-color: #333;
-    color: #f0f0f0;
-    border: 1px solid #555;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 12px;
-    margin: 5px;
-    padding: 8px 25px;
-    max-width: 100%;
-    transition: background-color 0.3s, transform 0.2s;
-}
-
-.tablink:active {
-    transform: scale(0.97);
-}
-
-.tablink:hover {
-    background-color: #77777731;
-}
-
-#excel-table {
-    border-collapse: collapse;
-    width: 100%;
-    position: relative;
-}
-
-#excel-table thead {
-    position: sticky;
-    top: 0;
-    background-color: #3a3a3a;
-    z-index: 10;
-}
-
-#excel-table th {
     padding: 10px;
-    color: #ffffff;
-    text-align: center;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    transition: border-color 0.3s;
+    direction: rtl;
+    margin: 5px;
+}
+
+select:focus,
+input[type="text"]:focus {
+    border-color: #555; /* Dark border on focus */
+    outline: none; /* Remove default outline */
+}
+
+select {
+    width: 20%;
+}
+
+.file-input-container {
+    display: flex;
+    align-items: center;
 }
 
 .file-button {
-    font-size: 20px;
-    border: 1px solid #555;
+    padding: 10px;
+    border: none;
     border-radius: 5px;
-    background-color: #333;
-    color: #e0e0e0;
+    background-color: #28a745; /* Green for file button */
+    color: white;
     cursor: pointer;
-    padding: 5px 10px;
+    transition: background-color 0.3s;
+}
+
+.file-button:hover {
+    background-color: #218838; /* Darker green on hover */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th, td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: #f4f4f4; /* Light background for headers */
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9; /* Alternate row color */
+}
+
+.cell-stock {
+    background-color: #d4edda; /* Light green for in-stock */
+}
+
+.cell-low-stock {
+    background-color: #fff3cd; /* Light yellow for low stock */
+    color: #856404; /* Dark yellow for text */
+}
+
+.cell-out-of-stock {
+    background-color: #f8d7da; /* Light red for out of stock */
+    color: #721c24; /* Dark red for text */
+}
+
+.info-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.info-table td {
+    padding: 10px;
+    border: none;
+    text-align: right;
+}
+
+.info-table td span {
+    font-weight: bold; /* Bold for numbers */
+}
+
+.toggle-button {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff; /* Blue for toggle button */
+    color: white;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s;
+}
+
+.toggle-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
 }
