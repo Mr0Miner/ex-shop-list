@@ -8,7 +8,6 @@
 body {
     background-color: #f0f0f0;
     color: #333;
-    transition: background-color 0.3s, color 0.3s;
 }
 
 .container {
@@ -18,7 +17,6 @@ body {
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     background-color: #fff;
-    transition: background-color 0.3s, color 0.3s;
 }
 
 .night {
@@ -56,7 +54,6 @@ body {
     background-color: #ddd;
     color: #333;
     cursor: pointer;
-    transition: background-color 0.3s, color 0.3s;
 }
 
 .tablink:hover {
@@ -112,7 +109,6 @@ select {
     background-color: #28a745;
     color: white;
     cursor: pointer;
-    transition: background-color 0.3s;
 }
 
 .file-button:hover {
@@ -156,6 +152,23 @@ tr:nth-child(even) {
     font-weight: bold; /* پر رنگ کردن متن */
 }
 
+.night .cell-stock {
+    background-color: #2e7d32; /* رنگ پس‌زمینه سبز تیره */
+    font-weight: bold; /* پر رنگ کردن متن */
+}
+
+.night .cell-low-stock {
+    background-color: #ffeb3b; /* رنگ پس‌زمینه زرد روشن */
+    color: #7a7a00; /* رنگ متن زرد تیره */
+    font-weight: bold; /* پر رنگ کردن متن */
+}
+
+.night .cell-out-of-stock {
+    background-color: #c62828; /* رنگ پس‌زمینه قرمز تیره */
+    color: #ffffff; /* رنگ متن سفید */
+    font-weight: bold; /* پر رنگ کردن متن */
+}
+
 .info-table {
     width: 100%;
     border-collapse: collapse;
@@ -184,23 +197,61 @@ tr:nth-child(even) {
 }
 
 .toggle-button svg {
-    width: 50%;
-    height: 50%;
+    width: 50px;
+    height: 50px;
+}
+
+.night .toggle-button, .night .scroll-to-top {
+    fill: white;
 }
 
 .toggle-button:hover {
-    transform: scale(0.98);
-}
-
-.night #excel-table {
-    background-color: #333; /* رنگ پس‌زمینه جدول در حالت شب */
+    transform: scale(1.05);
 }
 
 .night #excel-table th {
     background-color: #444; /* رنگ پس‌زمینه سرستون‌ها در حالت شب */
+    color: black;
 }
 
 .night #excel-table td {
     border: 1px solid #555; /* رنگ مرز سلول‌ها در حالت شب */
     color: black;
 }
+
+#excel-table td:nth-child(6), /* ستون قیمت خرید */
+#excel-table td:nth-child(8) { /* ستون سود */
+    font-size: 50%; /* عرض دلخواه برای ستون‌ها */
+}
+
+#excel-table {
+    border-collapse: collapse;
+    width: 100%;
+    position: relative; /* برای استفاده از position: sticky */
+    overflow: auto; /* برای فعال کردن اسکرول */
+    max-height: 400px; /* حداکثر ارتفاع جدول */
+}
+
+#excel-table thead {
+    position: sticky; /* ثابت کردن سرستون */
+    top: 0; /* فاصله از بالای جدول */
+    background-color: #f4f4f4; /* رنگ پس‌زمینه سرستون */
+    z-index: 10; /* اطمینان از اینکه سرستون بالای سایر محتوا قرار گیرد */
+    
+}
+
+.scroll-to-top {
+    position: fixed;
+    bottom: 10px; /* فاصله از پایین */
+    right: 20px; /* فاصله از راست */
+    background: none; /* رنگ پس‌زمینه */
+    border: none;
+    cursor: pointer;
+    z-index: 1000; /* اطمینان از اینکه دکمه بالای سایر محتوا قرار گیرد */
+    display: none; /* پنهان کردن دکمه به طور پیش‌فرض */
+    transition: transform 0.3s;
+}
+.scroll-to-top:hover {
+    transform: scale(1.05);
+}
+
