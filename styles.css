@@ -24,23 +24,6 @@ body {
     color: #f0f0f0;
 }
 
-.night .tablink {
-    background-color: #555;
-    color: white;
-}
-
-.night .info-table {
-    background-color: #333;
-    color: #f0f0f0;
-}
-
-.night .search-container select,
-.night .search-container input {
-    background-color: #444;
-    color: #f0f0f0;
-    border: 1px solid #666;
-}
-
 .tab-buttons {
     display: flex;
     justify-content: space-around;
@@ -129,6 +112,7 @@ th, td {
 
 th {
     background-color: #f4f4f4;
+    white-space: nowrap; /* جلوگیری از شکستن متن به خطوط جدید */
 }
 
 tr:nth-child(even) {
@@ -187,9 +171,8 @@ tr:nth-child(even) {
 
 .toggle-button {
     position: fixed;
-    top: 20px;
-    right: 20px;
-    padding: 10px;
+    bottom: 10px; /* فاصله از پایین */
+    right: 80px; /* فاصله از راست */
     border: none;
     cursor: pointer;
     transition: transform 0.3s;
@@ -210,18 +193,12 @@ tr:nth-child(even) {
 }
 
 .night #excel-table th {
-    background-color: #444; /* رنگ پس‌زمینه سرستون‌ها در حالت شب */
+    background-color: #9b9b9b; /* رنگ پس‌زمینه سرستون‌ها در حالت شب */
     color: black;
 }
 
 .night #excel-table td {
-    border: 1px solid #555; /* رنگ مرز سلول‌ها در حالت شب */
     color: black;
-}
-
-#excel-table td:nth-child(6), /* ستون قیمت خرید */
-#excel-table td:nth-child(8) { /* ستون سود */
-    font-size: 50%; /* عرض دلخواه برای ستون‌ها */
 }
 
 #excel-table {
@@ -230,6 +207,7 @@ tr:nth-child(even) {
     position: relative; /* برای استفاده از position: sticky */
     overflow: auto; /* برای فعال کردن اسکرول */
     max-height: 400px; /* حداکثر ارتفاع جدول */
+    background-color: gray;
 }
 
 #excel-table thead {
@@ -237,7 +215,16 @@ tr:nth-child(even) {
     top: 0; /* فاصله از بالای جدول */
     background-color: #f4f4f4; /* رنگ پس‌زمینه سرستون */
     z-index: 10; /* اطمینان از اینکه سرستون بالای سایر محتوا قرار گیرد */
-    
+}
+
+#excel-table td:nth-child(6), /* ستون قیمت خرید */
+#excel-table td:nth-child(8) { /* ستون سود */
+    font-size: 50%; /* عرض دلخواه برای ستون‌ها */
+}
+
+#excel-table td:nth-child(6):hover, /* ستون قیمت خرید */
+#excel-table td:nth-child(8):hover { /* ستون سود */
+    font-size: 80%; /* عرض دلخواه برای ستون‌ها */
 }
 
 .scroll-to-top {
@@ -251,7 +238,7 @@ tr:nth-child(even) {
     display: none; /* پنهان کردن دکمه به طور پیش‌فرض */
     transition: transform 0.3s;
 }
+
 .scroll-to-top:hover {
     transform: scale(1.05);
 }
-

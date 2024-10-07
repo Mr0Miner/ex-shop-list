@@ -278,10 +278,3 @@ function openPage(pageName, elmnt) {
 }
 
 document.getElementById("defaultOpen").click();
-
-function toggleVisibility(id) {
-    const element = document.getElementById(id);
-    if (element) {
-        element.style.display = (element.style.display === 'none' || element.style.display === '') ? 'inline' : 'none'; // تغییر وضعیت نمایش
-    }
-}
