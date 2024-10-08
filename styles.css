@@ -207,6 +207,9 @@ tr:nth-child(even) {
     position: relative; /* برای استفاده از position: sticky */
     overflow: auto; /* برای فعال کردن اسکرول */
     max-height: 400px; /* حداکثر ارتفاع جدول */
+}
+
+.night #excel-table {
     background-color: gray;
 }
 
